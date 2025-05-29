@@ -11,9 +11,9 @@ const ProjectItem = ({ project }: ProjectItemProps) => {
   const [zoomed, setZoomed] = useState(false);
 
   return (
-    <div className="flex flex-col gap-10">
-      <div className="flex h-130 px-20 py-15 bg-[#FAF6E9] shadow-md hover:shadow-lg text-gray-700 rounded-xl gap-15 items-center">
-        <div className="w-140 h-100 rounded-xl relative">
+    <div className="flex flex-col sm:w-full md:w-full gap-10">
+      <div className="flex flex-col gap-3 md:gap-15 md:flex md:flex-row px-5 py-5 md:px-20 md:py-15 bg-[#FAF6E9] shadow-md hover:shadow-lg text-gray-700 rounded-xl items-center">
+        <div className="sm:w-50 sm:h-50 md:w-140 md:h-100 max-w-full relative md:border-r-2 md:border-gray-500 md:pr-10">
           <img
             className="rounded-xl border-2 border-gray-200 shadow-md w-full h-full object-cover"
             src={project.image}
@@ -27,12 +27,12 @@ const ProjectItem = ({ project }: ProjectItemProps) => {
           </div>
         </div>
 
-        <div className="flex flex-col h-full justify-between border-l-2 border-gray-500 pl-10 gap-10">
+        <div className="flex flex-col flex-1 md:h-100 justify-between gap-5">
           <div className="flex flex-col gap-5">
-            <div className="w-80 text-3xl font-bold">{project.name}</div>
-            <div className="w-80 text-gray-500">{project.description}</div>
+            <div className="md:w-80 text-2xl md:text-3xl font-bold">{project.name}</div>
+            <div className="md:w-80 text-gray-500">{project.description}</div>
           </div>
-          <div className="flex flex-col w-80 text-sm text-gray-500 gap-2">
+          <div className="flex flex-col md:w-80 text-sm text-gray-500 gap-2">
             {project.liveUrl && (
               <div className="flex items-center gap-2">
                 <SiVercel className="text-xl text-gray-700" />
@@ -65,7 +65,7 @@ const ProjectItem = ({ project }: ProjectItemProps) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center gap-2">
+      <div className="hidden md:flex md:flex-col items-center gap-2">
         {Array.from({ length: 6 }).map((_, i) => (
           <div key={i} className="w-2 h-2 rounded-full bg-gray-500" />
         ))}

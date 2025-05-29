@@ -7,11 +7,11 @@ function App() {
   return (
     <div className="flex flex-col bg-white">
       <Navbar />
-      <div className="flex flex-col gap-20 py-15">
-        <div className="px-20 pt-10">
+      <div className="flex flex-col gap-15 md:gap-20 md:px-20 md:py-15">
+        <div className="">
           <AboutMe />
         </div>
-        <div className="flex flex-col gap-30 px-20 items-center">
+        <div className="flex flex-col gap-15 md:gap-30 items-center">
           <ProjectList />
           <SkillList />
         </div>
