@@ -65,7 +65,7 @@ const ProjectItem = ({ project }: ProjectItemProps) => {
           </div>
         </div>
       </div>
-      <div className="hidden md:flex md:flex-col items-center gap-2">
+      <div className="flex flex-col items-center gap-1 md:gap-2">
         {Array.from({ length: 6 }).map((_, i) => (
           <div key={i} className="w-2 h-2 rounded-full bg-gray-500" />
         ))}
