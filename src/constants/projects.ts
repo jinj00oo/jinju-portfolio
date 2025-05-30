@@ -14,7 +14,7 @@ export const projects: Project[] = [
     name: '감정 일기장',
     description:
       '컴포넌트 기반 UI 설계, 상태 관리, 라우팅 등 프론트엔드의 핵심 개념을 숙지하고, 감정 일기장 프로젝트에 직접 적용해본 경험이 있습니다. 특히, 전공 시간에 배운 지식을 바탕으로 데이터베이스를 직접 설계하고 백엔드까지 연결해 전체 서비스를 구현해보았습니다. 이러한 경험 덕분에 프론트엔드와 백엔드의 구조와 데이터 흐름을 깊이 이해하게 되었고, 실제 개발 과정에서 백엔드와의 소통과 협업을 더욱 효과적으로 할 수 있는 역량을 갖추게 되었습니다.',
-    techStack: ['React', 'TypeScript', 'TailwindCSS', 'MySQL', 'Node.js'],
+    techStack: ['React', 'JavaScript', 'CSS', 'MySQL', 'Node.js'],
 
     image: '../images/emotiondiary.png',
     github: 'https://github.com/jinj00oo/emotion-diary-front',
