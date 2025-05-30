@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import type { Project } from '../constants/projects';
-import { FaGithub, FaSearch } from 'react-icons/fa';
-import { SiVercel } from 'react-icons/si';
+import { FaSearch } from 'react-icons/fa';
 
 interface ProjectItemProps {
   project: Project;
@@ -11,64 +10,57 @@ const ProjectItem = ({ project }: ProjectItemProps) => {
   const [zoomed, setZoomed] = useState(false);
 
   return (
-    <div className="flex flex-col sm:w-full md:w-full gap-10">
-      <div className="flex flex-col gap-3 md:gap-15 md:flex md:flex-row px-5 py-5 md:px-20 md:py-15 bg-[#FAF6E9] shadow-md hover:shadow-lg text-gray-700 rounded-xl items-center">
-        <div className="sm:w-50 sm:h-50 md:w-140 md:h-100 max-w-full relative md:border-r-2 md:border-gray-500 md:pr-10">
+    <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+      <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5">
+          <div className="text-lg font-semibold text-gray-800">{project.name}</div>
+          <div className="text-sm text-gray-600">{project.description}</div>
+          <div className="flex flex-wrap gap-2 mt-2">
+            {project.techStack.map((tech) => (
+              <span
+                key={tech}
+                className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="relative w-full aspect-[4/3]">
           <img
-            className="rounded-xl border-2 border-gray-200 shadow-md w-full h-full object-cover"
             src={project.image}
             alt={project.name}
+            className="w-full h-full object-contain rounded-lg shadow-md"
           />
-          <div
-            className="absolute bottom-3 left-3 bg-white rounded-full p-2 shadow cursor-pointer z-10"
+          <button
+            className="absolute bottom-2 left-2 bg-white rounded-full p-1 shadow hover:shadow-lg transition-shadow cursor-pointer"
             onClick={() => setZoomed(true)}
           >
-            <FaSearch className="text-gray-700" />
-          </div>
+            <FaSearch className="text-gray-600" />
+          </button>
         </div>
-
-        <div className="flex flex-col flex-1 md:h-100 justify-between gap-5">
-          <div className="flex flex-col gap-5">
-            <div className="md:w-80 text-2xl md:text-3xl font-bold">{project.name}</div>
-            <div className="md:w-80 text-gray-500">{project.description}</div>
-          </div>
-          <div className="flex flex-col md:w-80 text-sm text-gray-500 gap-2">
+        <div className="flex flex-col gap-3">
+          <div className="flex gap-2">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-3 py-1.5 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              GitHub로 이동 →
+            </a>
             {project.liveUrl && (
-              <div className="flex items-center gap-2">
-                <SiVercel className="text-xl text-gray-700" />
-                <div>Live URL:</div>
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#71C9CE] underline hover:text-[#71C9CE]"
-                >
-                  {project.liveUrl}
-                </a>
-              </div>
-            )}
-
-            {project.github && (
-              <div className="flex items-center gap-2">
-                <FaGithub className="text-xl text-gray-700" />
-                <div>GitHub:</div>
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#71C9CE] underline hover:text-[#71C9CE]"
-                >
-                  {project.github}
-                </a>
-              </div>
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-3 py-1.5 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+              >
+                Live URL로 이동 →
+              </a>
             )}
           </div>
         </div>
-      </div>
-      <div className="flex flex-col items-center gap-1 md:gap-2">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i} className="w-2 h-2 rounded-full bg-gray-500" />
-        ))}
       </div>
 
       {zoomed && (
@@ -79,7 +71,7 @@ const ProjectItem = ({ project }: ProjectItemProps) => {
           <img
             src={project.image}
             alt={project.name}
-            className="w-full h-full object-contain rounded-xl shadow-lg duration-300"
+            className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-lg"
           />
         </div>
       )}
