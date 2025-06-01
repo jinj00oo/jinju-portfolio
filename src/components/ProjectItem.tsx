@@ -49,6 +49,16 @@ const ProjectItem = ({ project }: ProjectItemProps) => {
             >
               GitHub로 이동 →
             </a>
+            {project.backend && (
+              <a
+                href={project.backend}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-3 py-1.5 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+              >
+                백엔드 GitHub →
+              </a>
+            )}
             {project.liveUrl && (
               <a
                 href={project.liveUrl}

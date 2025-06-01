@@ -5,6 +5,7 @@ export interface Project {
   image?: string;
   github?: string;
   liveUrl?: string;
+  backend?: string;
   techStack: string[];
 }
 
@@ -19,6 +20,7 @@ export const projects: Project[] = [
     image: '../images/emotiondiary.png',
     github: 'https://github.com/jinj00oo/emotion-diary-front',
     liveUrl: 'https://emotion-diary-jet-five.vercel.app/',
+    backend: 'https://github.com/jinj00oo/emotion-diary-back',
   },
   {
     id: 2,
@@ -29,6 +31,7 @@ export const projects: Project[] = [
 
     image: '../images/lp.png',
     github: 'https://github.com/HIUMC/UMC-8th-Web-Study/tree/main/cola/week8/mission2',
+    backend: 'https://github.com/dydals3440/UMC-8th-BE',
   },
   {
     id: 3,
